@@ -16,6 +16,7 @@ import {
 
 import { FaBots, FaAws, FaMicrochip, FaNetworkWired, FaJava, FaCloud } from "react-icons/fa6";
 import { GiMicrochip } from "react-icons/gi";
+import { Analytics } from "@vercel/analytics/next"
 
 
 function ExperienceItem({ exp }) {

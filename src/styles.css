@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+/* Nice selection */
+::selection { background: rgba(99,102,241,.35); }
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Subtle scrollbar */
+* { scrollbar-width: thin; scrollbar-color: rgba(148,163,184,.35) rgba(2,6,23,.1); }

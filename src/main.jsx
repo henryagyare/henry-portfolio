@@ -22,15 +22,14 @@ function isExternalLink(a) {
 }
 
 function track(eventName, params = {}) {
-  // GA4 (if you installed gtag in index.html)
-  if (typeof window.gtag === "function") {
-    window.gtag("event", eventName, params);
-  }
+  if (typeof window.gtag !== "function") return;
 
-  // Optional: Vercel Web Analytics custom events (only if you choose to use them)
-  // Vercel Analytics focuses on pageviews/perf; custom event support depends on product settings.
-  // If you later add another client analytics SDK, you can also send events here.
+  window.gtag("event", eventName, {
+    ...params,
+    page_location: window.location.href
+  });
 }
+
 
 // ---- Make external links open in new tab (use CAPTURE so it happens before navigation) ----
 document.addEventListener(
@@ -47,12 +46,12 @@ document.addEventListener(
     const external = isExternalLink(a);
 
     // Track key actions
-    if (href.includes("resume")) {
-      track("resume_click", { href });
-    } else if (external) {
-      track("external_link_click", { href, text, domain: new URL(a.href).hostname });
-    } else if (href.startsWith("#")) {
-      track("section_nav_click", { section: href.replace("#", "") });
+    if (href.includes("github.com")) {
+      track("github_click", { href });
+    } else if (href.includes("linkedin.com")) {
+      track("linkedin_click", { href });
+    } else if (href.startsWith("mailto:")) {
+      track("contact_click", { method: "email" });
     }
 
     // External links open new tab safely
@@ -63,3 +62,27 @@ document.addEventListener(
   },
   true // capture phase
 );
+
+
+const seenSections = new Set();
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const section = entry.target.dataset.trackSection;
+      if (!section || seenSections.has(section)) return;
+
+      seenSections.add(section);
+      track("section_view", { section });
+    });
+  },
+  { threshold: 0.35 }
+);
+
+window.addEventListener("load", () => {
+  document
+    .querySelectorAll("[data-track-section]")
+    .forEach((el) => observer.observe(el));
+});

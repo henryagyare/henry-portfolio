@@ -5,7 +5,7 @@ import {
   SiTensorflow, SiPytorch, SiDocker, SiKubernetes,
   SiLinux, SiGit, SiArduino, SiRust, SiGoogle, SiPostgresql, SiRedis,
   SiTailwindcss, SiVercel,
-  SiNodedotjs, SiDotnet, 
+  SiNodedotjs, SiDotnet,
 } from "react-icons/si";
 
 import {
@@ -68,7 +68,11 @@ function Container({ children }) {
 
 function Section({ id, eyebrow, title, children }) {
   return (
-    <section id={id} className="py-16 sm:py-20">
+    <section
+      id={id}
+      data-track-section={id}
+      className="py-16 sm:py-20"
+    >
       <Container>
         <div className="mb-10">
           {eyebrow && (
@@ -282,6 +286,13 @@ function ProjectCard({ p }) {
           href={p.href}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            track("project_click", {
+              project: p.title,
+              category: p.badge,
+              stack: p.stack.join(", ")
+            });
+          }}
           className="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200"
         >
           View Project <FiExternalLink className="opacity-80" />

@@ -46,6 +46,13 @@ export const skills = {
 // ————————————————————————
 export const projects = [
   {
+    title: "Goal Misgeneralization in a Model-Based Agent",
+    blurb: "Built a minimal physics environment + learned dynamics model + CEM planner to demonstrate proxy reward failures under distribution shift, even when the world model remains accurate.",
+    stack: ["PyTorch", "Model-Based RL", "CEM", "Planning", "Matplotlib"],
+    href: "https://github.com/henryagyare/goal-misgeneralization-toy-agent",
+    badge: "AI / Research",
+  },
+  {
     title: "Spinal Lower Back Pain Classifier",
     blurb: "Full-stack Streamlit app with LLM-powered diagnostic analysis using Groq’s Llama 3.3 API.",
     stack: ["TensorFlow", "PyDICOM", "Groq", "LLM", "Streamlit"],

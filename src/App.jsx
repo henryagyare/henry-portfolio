@@ -1,5 +1,6 @@
 import React from "react";
 import { site, projects, skills, about, experience } from "./content";
+import { track } from "./utils/analytics.js";
 import {
   SiPython, SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiFlask, SiSpring,
   SiTensorflow, SiPytorch, SiDocker, SiKubernetes,
@@ -17,50 +18,9 @@ import {
 import { FaBots, FaAws, FaMicrochip, FaNetworkWired, FaJava, FaCloud } from "react-icons/fa6";
 import { GiMicrochip } from "react-icons/gi";
 
-
-function ExperienceItem({ exp }) {
-  return (
-    <div className="relative pl-6 pb-8 last:pb-0">
-      {/* Timeline dot */}
-      <div className="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-blue-500 border-2 border-slate-900" />
-
-      <div className="rounded-xl bg-slate-950/20 border border-slate-800/70 p-5">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-          <div>
-            <div className="font-semibold text-lg">{exp.role}</div>
-            <div className="text-blue-300 font-medium">{exp.company}</div>
-          </div>
-          <div className="text-sm text-slate-300/70 whitespace-nowrap">{exp.dates}</div>
-        </div>
-
-        <div className="mt-2 text-sm text-slate-300/70">{exp.location}</div>
-
-        <ul className="mt-4 space-y-2">
-          {exp.bullets.map((bullet, i) => (
-            <li key={i} className="flex gap-2">
-              <span className="text-slate-500">•</span>
-              <span className="text-slate-200/85">{bullet}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
-
-function Experience() {
-  return (
-    <div className="border-l-2 border-slate-800/50 ml-1.5 pl-4">
-      {experience.map((exp, idx) => (
-        <ExperienceItem key={idx} exp={exp} />
-      ))}
-    </div>
-  );
-}
-
 function Container({ children }) {
   return (
-    <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
+    <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
       {children}
     </div>
   );
@@ -71,18 +31,21 @@ function Section({ id, eyebrow, title, children }) {
     <section
       id={id}
       data-track-section={id}
-      className="py-16 sm:py-20"
+      className="py-20 border-t border-zinc-900/65 relative overflow-hidden"
     >
       <Container>
-        <div className="mb-10">
-          {eyebrow && (
-            <div className="text-xs tracking-[0.25em] uppercase text-slate-300/70">
-              {eyebrow}
-            </div>
-          )}
-          <h2 className="mt-3 text-2xl sm:text-3xl font-semibold">
-            {title}
-          </h2>
+        <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-12 gap-2">
+          <div>
+            {eyebrow && (
+              <span className="font-display text-xs font-semibold tracking-[0.2em] uppercase text-indigo-400">
+                // {eyebrow}
+              </span>
+            )}
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold tracking-tight text-white">
+              {title}
+            </h2>
+          </div>
+          <div className="h-px bg-gradient-to-r from-zinc-800/80 to-transparent flex-grow md:ml-8 hidden md:block" />
         </div>
         {children}
       </Container>
@@ -90,96 +53,78 @@ function Section({ id, eyebrow, title, children }) {
   );
 }
 
-function Pill({ children }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-slate-700/70 bg-slate-900/35 px-3 py-1 text-xs text-slate-200">
-      {children}
-    </span>
-  );
-}
-
-function Button({ href, children, variant = "primary" }) {
-  const base =
-    "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-blue-500/50";
-  const styles =
-    variant === "primary"
-      ? "bg-blue-600 hover:bg-blue-500 text-white shadow-glow"
-      : "border border-blue-500/40 bg-slate-950/20 hover:bg-slate-900/30 text-slate-100";
-  return (
-    <a href={href} className={`${base} ${styles}`}>
-      {children}
-      <FiExternalLink className="opacity-80" />
-    </a>
-  );
-}
-
 function Nav() {
   return (
-    <div className="sticky top-0 z-50 border-b border-slate-800/60 bg-slate-950/65 backdrop-blur">
-      <Container>
-        <div className="flex items-center justify-between py-4">
-          <a href="#top" className="font-semibold tracking-wide">
-            {site.name}
-          </a>
-          <div className="hidden sm:flex items-center gap-6 text-sm text-slate-200/90">
-            <a className="hover:text-white" href="#experience">Experience</a>
-            <a className="hover:text-white" href="#projects">Projects</a>
-            <a className="hover:text-white" href="#skills">Skills</a>
-            <a className="hover:text-white" href="#about">About</a>
-            <a className="hover:text-white" href={site.links.resume}>Resume</a>
-            <a className="hover:text-white" href={site.links.github} aria-label="GitHub"><FiGithub /></a>
-          </div>
-          <a className="sm:hidden text-slate-200/90" href="#contact">Contact</a>
+    <nav className="sticky top-4 z-50 mx-auto max-w-4xl px-4">
+      <div className="flex items-center justify-between rounded-full border border-zinc-800/60 bg-zinc-950/70 px-6 py-3 backdrop-blur-md">
+        <a href="#top" className="font-display font-bold text-sm tracking-tight text-white hover:text-indigo-400 transition-colors">
+          {site.name}
+        </a>
+        <div className="hidden sm:flex items-center gap-6 text-xs font-semibold tracking-wider uppercase text-zinc-400">
+          <a className="hover:text-white transition-colors" href="#about">About</a>
+          <a className="hover:text-white transition-colors" href="#experience">Experience</a>
+          <a className="hover:text-white transition-colors" href="#projects">Projects</a>
+          <a className="hover:text-white transition-colors" href="#skills">Skills</a>
+          <a className="hover:text-white transition-colors" href={site.links.resume}>Resume</a>
         </div>
-      </Container>
-    </div>
+        <div className="flex items-center gap-4">
+          <a className="hover:text-white text-zinc-455 transition-colors" href={site.links.github} aria-label="GitHub"><FiGithub className="h-4.5 w-4.5" /></a>
+          <a className="hover:text-white text-zinc-455 transition-colors" href={site.links.linkedin} aria-label="LinkedIn"><FiLinkedin className="h-4.5 w-4.5" /></a>
+          <a className="bg-white hover:bg-zinc-200 text-zinc-950 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide transition-all shadow-sm" href="#contact">
+            Hire Me
+          </a>
+        </div>
+      </div>
+    </nav>
   );
 }
 
 function Hero() {
   return (
-    <header id="top" className="relative overflow-hidden pt-14 sm:pt-16">
-      <div className="absolute inset-0 opacity-90" aria-hidden="true">
-        <div
-          className="absolute inset-0 bg-[url('/src/assets/neon-grid.svg')] bg-cover bg-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/25 via-slate-950/60 to-slate-950" />
-      </div>
+    <header id="top" className="relative overflow-hidden pt-20 pb-20 md:pt-28 md:pb-28">
+      {/* Background glow meshes */}
+      <div className="absolute inset-0 -z-10 bg-grid-fade pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <Container>
-        <div className="relative py-16 sm:py-24">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/35 px-4 py-2 text-xs text-slate-200">
-              <span className="h-2 w-2 rounded-full bg-blue-500 shadow-glow" />
-              {site.roleLine}
-            </div>
+        <div className="relative flex flex-col items-start">
+          {/* Availability Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-medium text-emerald-400 shadow-sm backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="status-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            {site.roleLine}
+          </div>
 
-            <h1 className="mt-7 text-4xl sm:text-6xl font-semibold leading-[1.05] tracking-tight">
-              {site.tagline}
-            </h1>
+          {/* Big Editorial Heading */}
+          <h1 className="mt-8 font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.05] max-w-4xl">
+            Building <span className="font-serif italic font-normal text-indigo-300 text-glow-accent">intelligent</span> systems for the real world.
+          </h1>
 
-            <p className="mt-5 max-w-2xl text-slate-200/80 leading-relaxed">
-              {`Hi, I’m ${site.name}. I build reliable software, ship practical products, and love turning complex ideas into simple experiences.`}
-            </p>
+          <p className="mt-6 max-w-2xl text-base sm:text-lg text-zinc-400 font-light leading-relaxed">
+            Hi, I’m <span className="text-zinc-200 font-medium">{site.name}</span>. I design high-performance software, ship practical products, and love turning complex system requirements into elegant code.
+          </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#projects" className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-medium shadow-glow hover:bg-blue-500 transition">
-                View Projects
+          {/* Call to action & socials */}
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#projects" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 transition-all duration-200 shadow-md">
+              Explore Projects
+            </a>
+            <a href="#contact" className="inline-flex items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900 px-6 py-3 text-sm font-semibold text-zinc-200 transition-all duration-200 backdrop-blur-sm">
+              Get in Touch
+            </a>
+            <div className="h-8 w-px bg-zinc-800 mx-2 hidden sm:block" />
+            <div className="flex items-center gap-4">
+              <a className="text-zinc-400 hover:text-white transition-colors duration-200" href={site.links.github} target="_blank" rel="noopener noreferrer" title="GitHub">
+                <FiGithub className="h-5 w-5" />
               </a>
-              <a href="#contact" className="inline-flex items-center justify-center rounded-xl border border-blue-500/40 bg-slate-950/10 px-5 py-2.5 text-sm font-medium hover:bg-slate-900/30 transition">
-                Contact Me
+              <a className="text-zinc-400 hover:text-white transition-colors duration-200" href={site.links.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <FiLinkedin className="h-5 w-5" />
               </a>
-            </div>
-
-            <div className="mt-8 flex items-center gap-4 text-slate-200/80">
-              <a className="hover:text-white inline-flex items-center gap-2" href={site.links.github}>
-                <FiGithub /> GitHub
-              </a>
-              <a className="hover:text-white inline-flex items-center gap-2" href={site.links.linkedin}>
-                <FiLinkedin /> LinkedIn
-              </a>
-              <a className="hover:text-white inline-flex items-center gap-2" href={`mailto:${site.email}`}>
-                <FiMail /> Email
+              <a className="text-zinc-400 hover:text-white transition-colors duration-200" href={`mailto:${site.email}`} title="Email">
+                <FiMail className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -207,12 +152,12 @@ function getIcon(tech) {
     // Frameworks & Libs
     React: SiReact,
     Next: SiNextdotjs,
-    Node: SiNodedotjs, // Note: lower 'd' in dotjs
+    Node: SiNodedotjs,
     FastAPI: FiZap,
     Flask: SiFlask,
     Spring: SiSpring,
     SpringBoot: SiSpring,
-    ".NET": SiDotnet, // Note: lower 'n' in dotnet
+    ".NET": SiDotnet,
     KMM: FiLayers,
     Redis: SiRedis,
     PostgreSQL: SiPostgresql,
@@ -249,39 +194,52 @@ function getIcon(tech) {
     Wireshark: FiMonitor,
   };
 
-
   const Icon = iconMap[tech] || FiHexagon;
   return <Icon className="h-3.5 w-3.5 flex-shrink-0" />;
 }
 
-function ProjectCard({ p }) {
+function ProjectCard({ p, index }) {
+  const numStr = String(index + 1).padStart(2, "0");
+  
   return (
-    <div className="group rounded-2xl border border-slate-800/70 bg-slate-950/20 p-5 shadow-[0_0_0_1px_rgba(148,163,184,0.06)] hover:shadow-glow transition">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <div className="text-xs text-slate-300/70">{p.badge}</div>
-          <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
-        </div>
-        <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/30 to-purple-500/20 border border-slate-700/60">
-          {getIcon(p.badge.split(' / ')[0] || 'Project')}
-        </div>
-      </div>
+    <div className="group rounded-2xl border border-zinc-800/80 bg-zinc-900/10 p-6 flex flex-col justify-between hover-card-border hover:bg-zinc-900/20 hover:border-zinc-700/60 transition-all duration-300 relative overflow-hidden">
+      
+      {/* Decorative backdrop glow */}
+      <div className="absolute -right-16 -top-16 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl group-hover:bg-indigo-500/10 transition-colors pointer-events-none" />
 
-      <p className="mt-3 text-sm text-slate-200/75 leading-relaxed">{p.blurb}</p>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {p.stack.map((tech) => (
-          <span
-            key={tech}
-            className="inline-flex items-center gap-1.5 rounded-full border border-slate-700/70 bg-slate-900/35 px-2.5 py-1 text-xs text-slate-200"
-          >
-            {getIcon(tech)}
-            <span className="truncate max-w-[80px]">{tech}</span>
+      <div>
+        <div className="flex items-start justify-between">
+          <span className="text-xs font-display tracking-widest uppercase text-indigo-400/80 font-bold">
+            {p.badge}
           </span>
-        ))}
+          <span className="font-display font-bold text-4xl text-zinc-800 select-none group-hover:text-zinc-700/50 transition-colors">
+            {numStr}
+          </span>
+        </div>
+
+        <h3 className="mt-4 font-display font-bold text-xl text-white group-hover:text-indigo-300 transition-colors">
+          {p.title}
+        </h3>
+
+        <p className="mt-3 text-sm text-zinc-400 font-light leading-relaxed">
+          {p.blurb}
+        </p>
       </div>
 
-      <div className="mt-5">
+      <div className="mt-6">
+        {/* Stack tags */}
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {p.stack.map((tech) => (
+            <span
+              key={tech}
+              className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-950/40 px-2.5 py-1 text-xs text-zinc-300"
+            >
+              {getIcon(tech)}
+              <span className="truncate max-w-[90px]">{tech}</span>
+            </span>
+          ))}
+        </div>
+
         <a
           href={p.href}
           target="_blank"
@@ -293,7 +251,7 @@ function ProjectCard({ p }) {
               stack: p.stack.join(", ")
             });
           }}
-          className="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-blue-200"
+          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-400 hover:text-indigo-350 transition-all duration-200"
         >
           View Project <FiExternalLink className="opacity-80" />
         </a>
@@ -302,24 +260,83 @@ function ProjectCard({ p }) {
   );
 }
 
+function ExperienceItem({ exp, isLast }) {
+  return (
+    <div className="relative pl-8 pb-12 last:pb-0 group">
+      {/* Vertical line indicator */}
+      {!isLast && (
+        <div className="absolute left-[5.5px] top-6 bottom-0 w-px bg-zinc-800 group-hover:bg-indigo-900/60 transition-colors" />
+      )}
+      
+      {/* Custom dot */}
+      <div className="absolute left-0 top-2 h-3.5 w-3.5 rounded-full bg-zinc-950 border-2 border-zinc-700 group-hover:border-indigo-400 group-hover:bg-indigo-950 transition-all duration-300" />
+
+      <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/10 p-6 backdrop-blur-sm hover-card-border hover:border-zinc-700/60 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+          <div>
+            <h3 className="font-display font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">
+              {exp.role}
+            </h3>
+            <div className="text-sm font-medium text-zinc-400 mt-1 flex items-center gap-2">
+              <span className="text-zinc-200">{exp.company}</span>
+              <span className="text-zinc-650">•</span>
+              <span className="text-xs text-zinc-500">{exp.location}</span>
+            </div>
+          </div>
+          <span className="text-xs font-semibold tracking-wide uppercase text-zinc-500 sm:text-right bg-zinc-900 px-3 py-1 rounded-full border border-zinc-850 self-start sm:self-auto">
+            {exp.dates}
+          </span>
+        </div>
+
+        <ul className="mt-5 space-y-3">
+          {exp.bullets.map((bullet, i) => (
+            <li key={i} className="flex gap-3 text-sm text-zinc-400 font-light leading-relaxed">
+              <span className="text-indigo-500 flex-shrink-0 mt-1.5 h-1.5 w-1.5 rounded-full" />
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function Experience() {
+  return (
+    <div className="max-w-4xl mx-auto">
+      {experience.map((exp, idx) => (
+        <ExperienceItem key={idx} exp={exp} isLast={idx === experience.length - 1} />
+      ))}
+    </div>
+  );
+}
+
 function SkillsGrid() {
   const groups = [
     { title: "Languages", items: skills.languages },
-    { title: "Frameworks", items: skills.frameworks },
+    { title: "Frameworks & Libs", items: skills.frameworks },
     { title: "Cloud & Tools", items: skills.tools },
   ];
 
   return (
-    <div className="grid gap-5 sm:grid-cols-3">
+    <div className="grid gap-6 sm:grid-cols-3">
       {groups.map((g) => (
         <div
           key={g.title}
-          className="rounded-2xl border border-slate-800/70 bg-slate-950/20 p-5"
+          className="rounded-2xl border border-zinc-800/80 bg-zinc-900/10 p-6 backdrop-blur-sm hover-card-border hover:border-zinc-700/60 transition-all duration-300"
         >
-          <div className="text-sm font-semibold">{g.title}</div>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <h3 className="font-display font-bold text-sm text-zinc-300 tracking-wider uppercase border-b border-zinc-800 pb-3 mb-4">
+            {g.title}
+          </h3>
+          <div className="flex flex-wrap gap-2">
             {g.items.map((it) => (
-              <Pill key={it}>{it}</Pill>
+              <span
+                key={it}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300 hover:border-zinc-700 hover:text-white transition-all duration-150"
+              >
+                {getIcon(it)}
+                {it}
+              </span>
             ))}
           </div>
         </div>
@@ -330,26 +347,65 @@ function SkillsGrid() {
 
 function About() {
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.05fr_.95fr] items-start">
-      <div className="rounded-2xl border border-slate-800/70 bg-slate-950/20 p-6">
-        <div className="text-sm text-slate-300/70">About</div>
-        <h3 className="mt-2 text-xl sm:text-2xl font-semibold leading-tight">
+    <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-start">
+      <div className="space-y-6">
+        <h3 className="font-display text-xl sm:text-2xl font-bold text-zinc-100 leading-snug">
           {about.heading}
         </h3>
-        <p className="mt-4 text-slate-200/75 leading-relaxed">{about.body}</p>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {about.highlights.map((h) => (
-            <Pill key={h}>{h}</Pill>
+        <p className="text-zinc-400 leading-relaxed text-base font-light">
+          {about.body}
+        </p>
+        <div className="pt-4 flex flex-wrap gap-2.5">
+          {about.highlights.map((h, i) => (
+            <span key={i} className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900/30 px-3.5 py-1.5 text-xs text-zinc-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
+              {h}
+            </span>
           ))}
         </div>
       </div>
 
-      <div className="rounded-2xl border border-slate-800/70 bg-slate-950/20 p-6">
-        <div className="text-sm text-slate-300/70">Quick Links</div>
-        <div className="mt-4 grid gap-3">
-          <Button href={site.links.resume} variant="secondary">Open Resume</Button>
-          <Button href={site.links.github} variant="secondary">GitHub</Button>
-          <Button href={site.links.linkedin} variant="secondary">LinkedIn</Button>
+      <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/10 p-6 backdrop-blur-sm relative hover-card-border">
+        <h4 className="font-display text-sm font-semibold tracking-wider uppercase text-zinc-400 mb-6">
+          Access & Connections
+        </h4>
+        <div className="grid gap-4">
+          <a
+            href={site.links.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-950/40 hover:bg-zinc-900 hover:border-zinc-700 px-5 py-4 text-sm font-medium text-zinc-200 transition-all duration-200 group"
+          >
+            <span className="flex items-center gap-3">
+              <FiExternalLink className="h-4 w-4 text-indigo-400 group-hover:rotate-45 transition-transform" />
+              Open Resume (PDF)
+            </span>
+            <span className="text-xs text-zinc-500">View CV</span>
+          </a>
+          <a
+            href={site.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-950/40 hover:bg-zinc-900 hover:border-zinc-700 px-5 py-4 text-sm font-medium text-zinc-200 transition-all duration-200 group"
+          >
+            <span className="flex items-center gap-3">
+              <FiGithub className="h-4 w-4 text-indigo-400" />
+              Explore GitHub
+            </span>
+            <span className="text-xs text-zinc-500">Codebases</span>
+          </a>
+          <a
+            href={site.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-xl border border-zinc-800 bg-zinc-950/40 hover:bg-zinc-900 hover:border-zinc-700 px-5 py-4 text-sm font-medium text-zinc-200 transition-all duration-200 group"
+          >
+            <span className="flex items-center gap-3">
+              <FiLinkedin className="h-4 w-4 text-indigo-400" />
+              Connect on LinkedIn
+            </span>
+            <span className="text-xs text-zinc-500">Network</span>
+          </a>
         </div>
       </div>
     </div>
@@ -358,27 +414,37 @@ function About() {
 
 function Contact() {
   return (
-    <div className="rounded-2xl border border-slate-800/70 bg-slate-950/20 p-6">
-      <div className="grid gap-6 lg:grid-cols-2 items-center">
+    <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/10 p-8 md:p-12 backdrop-blur-sm hover-card-border relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="grid gap-8 lg:grid-cols-2 items-center">
         <div>
-          <div className="text-sm text-slate-300/70">Contact</div>
-          <h3 className="mt-2 text-2xl font-semibold">Let’s build something.</h3>
-          <p className="mt-3 text-slate-200/75 leading-relaxed">
-            Want to collaborate or chat about an opportunity? Email me and I’ll respond quickly.
+          <span className="font-display text-xs font-semibold tracking-[0.2em] uppercase text-indigo-400">
+            // Collaboration
+          </span>
+          <h3 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight text-white leading-none">
+            Let's build <span className="font-serif italic font-normal text-indigo-300">something</span> meaningful.
+          </h3>
+          <p className="mt-4 text-zinc-400 font-light leading-relaxed">
+            Interested in hiring me, collaborating on a project, or just talking shop? Drop me an email or find me on social media. I respond quickly.
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3 lg:justify-end">
+        <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
           <a
             href={`mailto:${site.email}`}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-medium shadow-glow hover:bg-blue-500 transition"
+            className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 transition-all shadow-md group animate-none"
           >
-            <FiMail /> Email Me
+            <FiMail className="h-4.5 w-4.5 text-zinc-800" />
+            <span>Email Me</span>
           </a>
           <a
             href={site.links.linkedin}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-blue-500/40 bg-slate-950/10 px-5 py-3 text-sm font-medium hover:bg-slate-900/30 transition"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 rounded-full border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900 px-7 py-4 text-sm font-semibold text-zinc-200 transition-all backdrop-blur-sm group"
           >
-            <FiLinkedin /> LinkedIn
+            <FiLinkedin className="h-4.5 w-4.5 text-zinc-400 group-hover:text-white" />
+            <span>Connect on LinkedIn</span>
           </a>
         </div>
       </div>
@@ -388,14 +454,14 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-slate-800/60 py-10">
+    <footer className="border-t border-zinc-900/65 bg-zinc-950/40 py-12">
       <Container>
-        <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between text-sm text-slate-300/75">
+        <div className="flex flex-col sm:flex-row gap-6 items-center justify-between text-xs text-zinc-500 font-semibold tracking-wider uppercase">
           <div>© {new Date().getFullYear()} {site.name}. All rights reserved.</div>
-          <div className="flex items-center gap-4">
-            <a className="hover:text-white" href={site.links.github}>GitHub</a>
-            <a className="hover:text-white" href={site.links.linkedin}>LinkedIn</a>
-            <a className="hover:text-white" href={`mailto:${site.email}`}>Email</a>
+          <div className="flex items-center gap-6">
+            <a className="hover:text-zinc-300 transition-colors" href={site.links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a className="hover:text-zinc-300 transition-colors" href={site.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="hover:text-zinc-300 transition-colors" href={`mailto:${site.email}`}>Email</a>
           </div>
         </div>
       </Container>
@@ -405,8 +471,14 @@ function Footer() {
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Nav />
+    <div className="min-h-screen selection:bg-indigo-500/20 antialiased bg-zinc-950 text-zinc-100 font-sans pb-10">
+      {/* Editorial grid lines background */}
+      <div className="fixed inset-0 dark-grid-lines pointer-events-none -z-20 opacity-70" />
+      
+      <div className="pt-6">
+        <Nav />
+      </div>
+      
       <Hero />
 
       <Section id="about" eyebrow="Story" title="About Me">
@@ -418,17 +490,19 @@ export default function App() {
       </Section>
 
       <Section id="projects" eyebrow="Work" title="My Projects">
-        <div className="grid gap-5 md:grid-cols-3">
-          {projects.map((p) => (
-            <ProjectCard key={p.title} p={p} />
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((p, idx) => (
+            <ProjectCard key={p.title} p={p} index={idx} />
           ))}
         </div>
-        <div className="mt-8">
+        <div className="mt-12 flex justify-center">
           <a
-            className="inline-flex items-center justify-center rounded-xl border border-blue-500/40 bg-slate-950/10 px-5 py-2.5 text-sm font-medium hover:bg-slate-900/30 transition" target="_blank"
+            className="inline-flex items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/20 px-8 py-3 text-sm font-semibold text-zinc-300 hover:bg-zinc-900 transition-colors backdrop-blur-sm"
+            target="_blank"
+            rel="noopener noreferrer"
             href={site.links.github}
           >
-            View All Projects
+            View All Projects on GitHub
           </a>
         </div>
       </Section>
@@ -437,7 +511,7 @@ export default function App() {
         <SkillsGrid />
       </Section>
 
-      <section id="contact" className="py-16 sm:py-20">
+      <section id="contact" className="py-20">
         <Container>
           <Contact />
         </Container>

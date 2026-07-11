@@ -11,9 +11,10 @@ import { site } from "../content.js";
 //      {{subject}}, {{message}} — note your Template ID
 //   4. Copy your Public Key from Account > API Keys
 // ─────────────────────────────────────────────────────────────────────────────
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 
 export default function EmailModal({ isOpen, onClose }) {
   const formRef = useRef(null);
@@ -50,11 +51,11 @@ export default function EmailModal({ isOpen, onClose }) {
     setStatus("sending");
 
     const templateParams = {
-      from_name:  form.name,
+      from_name: form.name,
       from_email: form.email,
-      subject:    form.subject,
-      message:    form.message,
-      to_email:   site.email,
+      subject: form.subject,
+      message: form.message,
+      to_email: site.email,
     };
 
     try {

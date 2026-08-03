@@ -2,10 +2,18 @@ import React from "react";
 import { Container } from "./Layout.jsx";
 import { site } from "../content.js";
 import { FiGithub, FiLinkedin, FiMail } from "../utils/icons.jsx";
+import neonGrid from "../assets/neon-grid.svg";
 
 export default function Hero({ onEmailClick }) {
   return (
     <header id="top" className="relative overflow-hidden pt-20 pb-20 md:pt-28 md:pb-28">
+      {/* Neon grid artwork — dark mode only, fades into the flat page background */}
+      <div
+        className="absolute inset-0 -z-30 hidden dark:block bg-cover bg-center opacity-90"
+        style={{ backgroundImage: `url(${neonGrid})` }}
+      />
+      <div className="absolute inset-0 -z-30 hidden dark:block bg-gradient-to-b from-transparent via-zinc-950/70 to-zinc-950" />
+
       {/* Background glow meshes */}
       <div className="absolute inset-0 -z-10 bg-grid-fade pointer-events-none" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />

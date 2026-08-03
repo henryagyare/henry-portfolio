@@ -73,7 +73,7 @@ export default function Nav() {
             className="bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide transition-all shadow-sm"
             href={homeLink("#contact")}
           >
-            Hire Me
+            Let's Chat
           </a>
         </div>
       </div>

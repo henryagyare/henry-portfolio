@@ -11,6 +11,7 @@ import {
   FiGithub, FiLinkedin, FiMail, FiCpu, FiZap, FiGlobe, FiDatabase,
   FiHexagon, FiExternalLink,
   FiBarChart2, FiLayers, FiRepeat, FiMonitor,
+  FiSun, FiMoon,
 } from "react-icons/fi";
 
 import { FaBots, FaAws, FaMicrochip, FaNetworkWired, FaJava, FaCloud } from "react-icons/fa6";
@@ -23,6 +24,7 @@ export {
   SiTailwindcss, SiVercel, SiNodedotjs, SiDotnet,
   FiGithub, FiLinkedin, FiMail, FiCpu, FiZap, FiGlobe, FiDatabase,
   FiHexagon, FiExternalLink, FiBarChart2, FiLayers, FiRepeat, FiMonitor,
+  FiSun, FiMoon,
   FaBots, FaAws, FaMicrochip, FaNetworkWired, FaJava, FaCloud,
   GiMicrochip,
 };

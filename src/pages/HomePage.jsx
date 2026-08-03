@@ -37,7 +37,7 @@ export default function HomePage() {
         </div>
         <div className="mt-12 flex justify-center">
           <a
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/20 px-8 py-3 text-sm font-semibold text-zinc-300 hover:bg-zinc-900 transition-colors backdrop-blur-sm"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900/20 dark:hover:bg-zinc-900 px-8 py-3 text-sm font-semibold text-zinc-700 dark:text-zinc-300 transition-colors duration-300 backdrop-blur-sm"
             target="_blank"
             rel="noopener noreferrer"
             href={site.links.github}

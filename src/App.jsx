@@ -8,7 +8,7 @@ import ResumePage from "./pages/ResumePage.jsx";
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen selection:bg-indigo-500/20 antialiased bg-zinc-950 text-zinc-100 font-sans pb-10">
+      <div className="min-h-screen selection:bg-indigo-500/20 antialiased bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans pb-10 transition-colors duration-300">
         {/* Editorial grid lines background */}
         <div className="fixed inset-0 dark-grid-lines pointer-events-none -z-20 opacity-70" />
 

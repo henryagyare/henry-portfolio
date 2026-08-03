@@ -30,6 +30,7 @@ export default function HomePage() {
       </Section>
 
       <Section id="projects" eyebrow="Work" title="My Projects">
+        <div className="absolute -right-32 top-24 w-[500px] h-[500px] bg-violet-500/5 dark:bg-violet-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, idx) => (
             <ProjectCard key={p.title} p={p} index={idx} />

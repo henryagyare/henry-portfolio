@@ -28,7 +28,7 @@ export default function Hero({ onEmailClick }) {
           </h1>
 
           <p className="mt-6 max-w-2xl text-base sm:text-lg text-zinc-600 dark:text-zinc-400 font-light leading-relaxed transition-colors duration-300">
-            Hi, I'm <span className="text-zinc-900 dark:text-zinc-200 font-medium">{site.name}</span>. I design high-performance software, ship practical products, and love turning complex system requirements into elegant code.
+            Hi, I'm <span className="text-zinc-900 dark:text-zinc-200 font-medium">{site.name}</span>. I design high-performance software, ship practical products, and love turning complex system requirements into elegant solutions.
           </p>
 
           {/* Call to action & socials */}

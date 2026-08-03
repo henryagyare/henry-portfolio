@@ -4,17 +4,12 @@ import { FiMail, FiX } from "react-icons/fi";
 import { site } from "../content.js";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// EmailJS configuration — replace these placeholders with your actual values:
-//   1. Go to https://www.emailjs.com and create a free account
-//   2. Create a service (Gmail, Outlook, etc.) and note your Service ID
-//   3. Create an email template with variables: {{from_name}}, {{from_email}},
-//      {{subject}}, {{message}} — note your Template ID
-//   4. Copy your Public Key from Account > API Keys
+// EmailJS configuration loaded from Vite environment variables (VITE_ prefixed,
+// required for Vite to expose them to client-side code)
 // ─────────────────────────────────────────────────────────────────────────────
-const EMAILJS_SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.EMAILJS_PUBLIC_KEY;
-
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function EmailModal({ isOpen, onClose }) {
   const formRef = useRef(null);

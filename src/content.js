@@ -55,7 +55,7 @@ export const about = {
 // Skills
 // ————————————————————————
 export const skills = {
-  // Resume: "Languages & Frameworks"
+  // Resume: "Languages"
   languages: [
     "Java", "JavaScript", "Python", "C/C++",
     "React", "Node", "Flask", "HTML", "SQL", "REST APIs",
@@ -65,10 +65,11 @@ export const skills = {
     "GitHub Copilot", "Cursor", "Claude Code",
     "Prompt Engineering", "LLM Code Review", "Agentic Dev",
   ],
-  // Resume: "Data & Infrastructure"
+  // Resume: "Infra & Dev Tools" + "AI/ML & Data"
   tools: [
-    "MongoDB", "Docker", "Kubernetes", "AWS", "Git", "CI/CD",
-    "Linux", "Spark", "TensorFlow", "PyTorch", "Pandas",
+    "MongoDB", "Docker", "Kubernetes", "AWS", "Git", "CI/CD", "Jenkins",
+    "GitHub Actions", "Linux", "Spark", "TensorFlow", "PyTorch",
+    "Scikit-learn", "RAG", "Pandas",
   ],
 };
 
@@ -79,13 +80,12 @@ export const experience = [
   {
     company: "Allstate Insurance Company",
     role: "Software Engineer Intern",
-    dates: "May 2026 – Present",
+    dates: "May 2026 – August 2026",
     location: "Northbrook, Illinois",
     bullets: [
-      "Develop UI automation solutions using Playwright & JavaScript to validate onboarding & user journey workflows.",
-      "Contribute to CI/CD automation using GitHub Actions & Jenkins, supporting continuous testing across dev pipelines.",
-      "Collaborate on a production codebase using Git/GitHub, participating in PRs, code reviews, & Agile development.",
-      "Utilize REST APIs, Linux, & AI-assisted dev to support automation, debugging, integration, & software delivery.",
+      "Automated regression testing for auto insurance user onboarding workflows using Playwright & JavaScript.",
+      "Improved automation reliability by writing reusable end-to-end tests & resolving flaky pipeline failures.",
+      "Accelerated continuous testing by integrating GitHub Actions & Jenkins into CI/CD workflows.",
     ],
   },
   {
@@ -94,10 +94,10 @@ export const experience = [
     dates: "May 2025 – August 2025",
     location: "Round Rock, Texas",
     bullets: [
-      "Boosted hardware defect regression testing speed by over 100% through an AI-driven test case recommendation system.",
-      "Reduced hardware issue-testcase mapping errors by 10% using LLMs to analyze 1,200+ Jira tickets & 5,000+ testcases.",
-      "Achieved ~96% recommendations quality accuracy using precision/recall metrics, ensuring high-confidence test coverage.",
-      "Built user-friendly React dashboard for SQA teams to visualize AI recommendations, test coverage, & historical trends.",
+      "Built an AI testcase recommendation platform with LLMs, embeddings, & semantic similarity for regression analysis.",
+      "Reduced testcase selection time significantly by mapping 5,000+ test cases in qTest to 1,200+ Jira defects.",
+      "Delivered an interactive engineering dashboard using React & Flask to visualize AI-powered regression recommendations.",
+      "Improved recommendation quality by 10% via embedding optimization, reaching 96% accuracy.",
     ],
   },
   {
@@ -106,21 +106,20 @@ export const experience = [
     dates: "May 2024 – August 2024",
     location: "Remote",
     bullets: [
-      "Built a Java quiz app w/15.6k+ Q&A, achieving 99.9% uptime by deploying Spring Boot APIs on PostgreSQL.",
-      "Reduced API latency by ~40% via SQL query optimization, Redis caching, & multithreading for concurrent sessions.",
-      "Ensured 95%+ code coverage by writing JUnit/Mockito tests & collaborating in Agile sprints.",
+      "Delivered a scalable learning platform using Spring Boot REST APIs serving 15,000+ educational Q&A pairs.",
+      "Reduced backend latency by ~40% through SQL optimization, Redis caching, & multithreading.",
+      "Improved software reliability by implementing JUnit & Mockito tests with 95%+ code coverage.",
     ],
   },
   {
     company: "KNUST Engineering Lab",
     role: "Full Stack Engineering Intern",
-    dates: "May 2023 – August 2023",
+    dates: "August 2023 – November 2023",
     location: "Kumasi, Ghana",
     bullets: [
-      "Built a cross-platform CAD & circuit simulation app using Vue.js, TypeScript, Python, & Electron.",
-      "Developed frontend components & RESTful backend services connecting UI workflows with simulation engines.",
-      "Developed reusable components & automated testing workflows, improving reliability, maintainability, & scalability.",
-      "Integrated an AI chatbot using RAG pipelines to provide troubleshooting insights from circuit configurations.",
+      "Developed a cross-platform engineering simulation platform using Vue.js, Python, TypeScript, & Electron.",
+      "Enabled engineering simulations via RESTful backend services connecting user interfaces with computation pipelines.",
+      "Enhanced engineering support by integrating a RAG-powered assistant for circuit troubleshooting & design guidance.",
     ],
   },
   // Kept from original portfolio (not on 1-page resume but relevant)
@@ -156,30 +155,16 @@ export const experience = [
 export const projects = [
   // ── Resume projects ───────────────────────────────────────────────────────
   {
-    title: "Goal Misgeneralization in a Model-Based Agent",
+    title: "IntelliJobs",
     blurb:
-      "Engineered a physics-based simulation pipeline in a 4D continuous state space to evaluate autonomous agent robustness. Integrated a neural dynamics model with a CEM planner for 200-step trajectory rollout and receding-horizon MPC.",
-    stack: ["PyTorch", "Python", "Simulation", "MPC", "CEM Planning"],
-    href: "https://github.com/henryagyare/goal-misgeneralization-toy-agent",
-    badge: "AI / Research",
+      "Full-stack web & mobile jobs platform with a multi-source discovery pipeline aggregating listings from 4 ATS platforms with resume-aware, personalized ranking.",
+    stack: ["React", "Flutter", "FastAPI", "PostgreSQL", "JWT"],
+    badge: "Full-Stack",
     bullets: [
-      "Engineered a physics-based simulation pipeline in a 4D continuous state space to evaluate autonomous agent robustness.",
-      "Integrated a neural dynamics model with a CEM planner for 200-step trajectory rollout and receding-horizon MPC.",
-      "Built a reproducible evaluation framework across 4 environment shifts with up to 2× changes in mass and friction.",
-      "Analyzed simulation telemetry, showing low next-state MSE (~10⁻³) despite failure from proxy reward misalignment.",
-    ],
-  },
-  {
-    title: "Spinal Lower Back Pain Classifier",
-    blurb:
-      "Full-stack Streamlit app with LLM-powered diagnostic analysis using Groq's Llama 3.3 API. Built and iteratively improved a CNN-based MRI classifier using MobileNet-V2, achieving ~72% training accuracy.",
-    stack: ["TensorFlow/Keras", "MobileNet-V2", "PyDICOM", "Groq Llama 3.3", "Python"],
-    href: "https://spine-lbp-ai.streamlit.app/",
-    badge: "AI / Full-Stack",
-    bullets: [
-      "Deployed a full-stack Streamlit app with LLM-powered diagnostic analysis using Groq's Llama 3.3 API.",
-      "Built and iteratively improved a CNN-based MRI classifier using MobileNet-V2, achieving ~72% training accuracy.",
-      "Visualized accuracy & loss curves to diagnose overfitting & guide future model enhancements via fine-tuning.",
+      "Built a full-stack web & mobile jobs platform using React, Flutter, and containerized FastAPI services with PostgreSQL.",
+      "Designed core backend workflows for resume ingestion, personalized recommendations, & apps tracking with JWT auth.",
+      "Implemented a multi-source discovery pipeline aggregating listings from 4 ATS platforms with resume-aware ranking.",
+      "Engineered a multi-service architecture using API-first practices, schema migrations, and 1,500+ automated tests.",
     ],
   },
   {
@@ -195,7 +180,34 @@ export const projects = [
       "Prevented zombie processes using sigaction (SIGCHLD) w/non-blocking waitpid(), ensuring child process reaping.",
     ],
   },
+  {
+    title: "Goal Misgeneralization in a Model-Based Agent",
+    blurb:
+      "Engineered a physics-based simulation pipeline in a 4D continuous state space to evaluate autonomous agent robustness. Integrated a neural dynamics model with a CEM planner for 200-step trajectory rollout and receding-horizon MPC.",
+    stack: ["PyTorch", "Python", "Simulation", "MPC", "CEM Planning"],
+    href: "https://github.com/henryagyare/goal-misgeneralization-toy-agent",
+    badge: "AI / Research",
+    bullets: [
+      "Engineered a physics-based simulation pipeline in a 4D continuous state space to evaluate autonomous agent robustness.",
+      "Integrated a neural dynamics model with a CEM planner for 200-step trajectory rollout and receding-horizon MPC.",
+      "Built a reproducible evaluation framework across 4 environment shifts with up to 2× changes in mass and friction.",
+      "Analyzed simulation telemetry, showing low next-state MSE (~10⁻³) despite failure from proxy reward misalignment.",
+    ],
+  },
   // ── Additional portfolio items ─────────────────────────────────────────────
+  {
+    title: "Spinal Lower Back Pain Classifier",
+    blurb:
+      "Full-stack Streamlit app with LLM-powered diagnostic analysis using Groq's Llama 3.3 API. Built and iteratively improved a CNN-based MRI classifier using MobileNet-V2, achieving ~72% training accuracy.",
+    stack: ["TensorFlow/Keras", "MobileNet-V2", "PyDICOM", "Groq Llama 3.3", "Python"],
+    href: "https://spine-lbp-ai.streamlit.app/",
+    badge: "AI / Full-Stack",
+    bullets: [
+      "Deployed a full-stack Streamlit app with LLM-powered diagnostic analysis using Groq's Llama 3.3 API.",
+      "Built and iteratively improved a CNN-based MRI classifier using MobileNet-V2, achieving ~72% training accuracy.",
+      "Visualized accuracy & loss curves to diagnose overfitting & guide future model enhancements via fine-tuning.",
+    ],
+  },
   {
     title: "BrillaAI – STEM Question Synthesis",
     blurb:

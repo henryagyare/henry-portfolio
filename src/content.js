@@ -12,7 +12,7 @@ export const site = {
     github: "https://github.com/henryagyare",
     linkedin: "https://www.linkedin.com/in/henry-asante",
     resume: "/resume",           // Internal route
-    resumePdf: "/HenryAsante_Resume_SWE.pdf", // Actual PDF in /public
+    resumePdf: "/Henry_Asante_Resume.pdf", // Actual PDF in /public
   },
 };
 

@@ -169,7 +169,7 @@ export default function ResumePage() {
                   {site.name}
                 </h1>
                 <p className="mt-2 text-zinc-650 dark:text-zinc-400 text-sm font-light transition-colors duration-300">
-                  {education.location} · {site.phone} ·{" "}
+                  {education.location} ·{" "}
                   <a href={`mailto:${site.email}`} className="text-indigo-650 hover:text-indigo-850 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors duration-300 font-semibold">
                     {site.email}
                   </a>

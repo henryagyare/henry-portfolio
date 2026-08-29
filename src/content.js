@@ -7,7 +7,6 @@ export const site = {
   tagline: "Building intelligent systems for the real world.",
   location: "Grambling, Louisiana",
   email: "coml.asantehenry@gmail.com",
-  phone: "214.685.8733",
   links: {
     github: "https://github.com/henryagyare",
     linkedin: "https://www.linkedin.com/in/henry-asante",
@@ -83,9 +82,10 @@ export const experience = [
     dates: "May 2026 – August 2026",
     location: "Northbrook, Illinois",
     bullets: [
-      "Automated regression testing for auto insurance user onboarding workflows using Playwright & JavaScript.",
-      "Improved automation reliability by writing reusable end-to-end tests & resolving flaky pipeline failures.",
-      "Accelerated continuous testing by integrating GitHub Actions & Jenkins into CI/CD workflows.",
+      "Built automated Playwright/JavaScript regression tests for insurance quoting workflows across 40+ states.",
+      "Developed 12 functional tests validating state-dependent business logic, catching data-accuracy issues pre-release.",
+      "Diagnosed and resolved recurring Jenkins CI pipeline failures across 10 groups, improving test reliability.",
+      "Contributed 11 pull requests to a shared end-to-end test automation framework, improving test coverage.",
     ],
   },
   {
@@ -94,12 +94,38 @@ export const experience = [
     dates: "May 2025 – August 2025",
     location: "Round Rock, Texas",
     bullets: [
-      "Built an AI testcase recommendation platform with LLMs, embeddings, & semantic similarity for regression analysis.",
-      "Reduced testcase selection time significantly by mapping 5,000+ test cases in qTest to 1,200+ Jira defects.",
-      "Delivered an interactive engineering dashboard using React & Flask to visualize AI-powered regression recommendations.",
-      "Improved recommendation quality by 10% via embedding optimization, reaching 96% accuracy.",
+      "Built an AI platform recommending regression tests for reported software defects, using semantic similarity search.",
+      "Built a REST pipeline pulling 5,000+ test cases & 1,400+ Jira defects, cutting retrieval time ~83% via multithreading.",
+      "Developed a full-stack app (React & Flask+FastAPI) delivering AI test recommendations to iDRAC quality engineers, saving ~15 minutes per defect across 1,400+ Jira defects.",
+      "Achieved 89% test case recommendation accuracy and reduced manual test case selection time to seconds.",
+      "Presented results to engineering leadership, securing buy-in to expand the solution across Dell Quality Eng teams.",
     ],
   },
+  {
+    company: "TL James Engineering Lab — Grambling State University",
+    role: "Software Lead",
+    dates: "September 2024 – May 2025",
+    location: "Grambling, Louisiana",
+    bullets: [
+      "Built an Arduino-based sensor payload capturing atmospheric temperature & pressure at ~100,000 ft high.",
+      "Optimized C firmware for I²C/SPI peripherals, reducing sampling latency by 20% and ensuring reliability.",
+      "Resolved 30+ software/hardware issues by debugging with logic analyzers and protocol analyzers for SPI/I²C.",
+      "Led a 5-member team through the design lifecycle: schematics, PCB assembly, calibration, and field deployment.",
+    ],
+  },
+  {
+    company: "KNUST Engineering Lab",
+    role: "Full Stack Engineering Intern",
+    dates: "August 2023 – November 2023",
+    location: "Kumasi, Ghana",
+    bullets: [
+      "Built a circuit design and simulation app used by 1,500+ engineering students, enabling visual schematic creation.",
+      "Modeled 25+ circuit components (transistors, logic gates, passives) as an object-oriented TypeScript framework.",
+      "Developed a WebGL-based schematic canvas (PixiJS) with real-time wire and node detection for live circuit design.",
+      "Built REST APIs connecting the backend to PySpice/ngspice, enabling accurate SPICE-based circuit simulation.",
+    ],
+  },
+  // Kept from original portfolio (not on the latest 1-page resume but relevant)
   {
     company: "AmaliTech NSP Training",
     role: "Software Developer Trainee",
@@ -109,30 +135,6 @@ export const experience = [
       "Delivered a scalable learning platform using Spring Boot REST APIs serving 15,000+ educational Q&A pairs.",
       "Reduced backend latency by ~40% through SQL optimization, Redis caching, & multithreading.",
       "Improved software reliability by implementing JUnit & Mockito tests with 95%+ code coverage.",
-    ],
-  },
-  {
-    company: "KNUST Engineering Lab",
-    role: "Full Stack Engineering Intern",
-    dates: "August 2023 – November 2023",
-    location: "Kumasi, Ghana",
-    bullets: [
-      "Developed a cross-platform engineering simulation platform using Vue.js, Python, TypeScript, & Electron.",
-      "Enabled engineering simulations via RESTful backend services connecting user interfaces with computation pipelines.",
-      "Enhanced engineering support by integrating a RAG-powered assistant for circuit troubleshooting & design guidance.",
-    ],
-  },
-  // Kept from original portfolio (not on 1-page resume but relevant)
-  {
-    company: "TL James Engineering Lab — Grambling State University",
-    role: "Research / Lab Assistant",
-    dates: "September 2024 – May 2025",
-    location: "Grambling, Louisiana",
-    bullets: [
-      "Built an Arduino-based sensor payload capturing temperatures & pressures at >100,000 ft with 95% accuracy.",
-      "Optimized low-level C firmware for I²C/SPI peripherals, reducing sampling latency by 20%.",
-      "Resolved 30+ software/hardware issues using Python, logic analyzers, and protocol debuggers.",
-      "Collaborated in a 10-member team across schematic design, PCB layout, calibration, and deployment.",
     ],
   },
   {
@@ -161,10 +163,10 @@ export const projects = [
     stack: ["React", "Flutter", "FastAPI", "PostgreSQL", "JWT"],
     badge: "Full-Stack",
     bullets: [
-      "Built a full-stack web & mobile jobs platform using React, Flutter, and containerized FastAPI services with PostgreSQL.",
-      "Designed core backend workflows for resume ingestion, personalized recommendations, & apps tracking with JWT auth.",
-      "Implemented a multi-source discovery pipeline aggregating listings from 4 ATS platforms with resume-aware ranking.",
-      "Engineered a multi-service architecture using API-first practices, schema migrations, and 1,500+ automated tests.",
+      "Built a full-stack job platform (React, Flutter, FastAPI, PostgreSQL) serving 22 users with cross-ATS job aggregation.",
+      "Engineered a pipeline that surfaces job listings from 4 ATS platforms, aggregating opportunities in near real-time.",
+      "Implemented rules-based ranking, location-aware filtering & Telegram alerts, reducing time-to-apply for users.",
+      "Backed the platform with 1,800+ unit, integration, and e2e tests across pytest, Flutter, Vitest, and Playwright.",
     ],
   },
   {
@@ -175,11 +177,25 @@ export const projects = [
     href: "https://github.com/henryagyare/orbit-sh",
     badge: "Systems",
     bullets: [
-      "Built a Unix shell in C supporting command parsing, foreground/background execution, & built-in commands.",
-      "Implemented pipeline support (|) using pipe() and dup2() for inter-process communication between child processes.",
-      "Prevented zombie processes using sigaction (SIGCHLD) w/non-blocking waitpid(), ensuring child process reaping.",
+      "Built a Unix shell in C supporting command parsing, foreground/background execution, & built-ins (cd, exit).",
+      "Implemented two-stage pipelines (cmd1 | cmd2) using pipe() and dup2() for inter-process I/O redirection.",
+      "Prevented zombie processes via a SIGCHLD handler with non-blocking waitpid(), ensuring child process reaping.",
     ],
   },
+  {
+    title: "BrillaAI: STEM Questions Synthesis Platform",
+    blurb:
+      "AI system generating 15,600+ STEM practice questions by fine-tuning LLaMA-3 8B, with ETL pipelines to clean, structure, & validate the dataset.",
+    stack: ["LLaMA-3 8B", "PyTorch", "ETL", "Python"],
+    href: "https://github.com/henryagyare/BrillaAi-Questions-Synthesis",
+    badge: "AI / Full-Stack",
+    bullets: [
+      "Developed an AI system that generated 15,600+ STEM practice questions by fine-tuning a LLaMA-3 8B model.",
+      "Used gradient checkpointing and 8-bit optimizers to improve training efficiency on a single Tesla T4 GPU.",
+      "Built ETL pipelines to clean, structure, & validate 15,600+ records, enabling reproducible quality evaluation.",
+    ],
+  },
+  // ── Additional portfolio items ─────────────────────────────────────────────
   {
     title: "Goal Misgeneralization in a Model-Based Agent",
     blurb:
@@ -194,7 +210,6 @@ export const projects = [
       "Analyzed simulation telemetry, showing low next-state MSE (~10⁻³) despite failure from proxy reward misalignment.",
     ],
   },
-  // ── Additional portfolio items ─────────────────────────────────────────────
   {
     title: "Spinal Lower Back Pain Classifier",
     blurb:
@@ -206,19 +221,6 @@ export const projects = [
       "Deployed a full-stack Streamlit app with LLM-powered diagnostic analysis using Groq's Llama 3.3 API.",
       "Built and iteratively improved a CNN-based MRI classifier using MobileNet-V2, achieving ~72% training accuracy.",
       "Visualized accuracy & loss curves to diagnose overfitting & guide future model enhancements via fine-tuning.",
-    ],
-  },
-  {
-    title: "BrillaAI – STEM Question Synthesis",
-    blurb:
-      "Fine-tuned LLaMA-3 8B with LoRA to generate 15,600+ STEM QA pairs using Unsloth & 4-bit quantization.",
-    stack: ["LLaMA", "LoRA", "Unsloth", "SQL", "Python"],
-    href: "https://github.com/henryagyare/BrillaAi-Questions-Synthesis",
-    badge: "AI / Full-Stack",
-    bullets: [
-      "Fine-tuned LLaMA-3 8B with LoRA adapters to generate diverse STEM Q&A pairs using 4-bit quantization.",
-      "Curated and cleaned a dataset of 15,600+ question-answer pairs via automated SQL pipelines.",
-      "Leveraged Unsloth for efficient fine-tuning, reducing VRAM usage and training time significantly.",
     ],
   },
   {

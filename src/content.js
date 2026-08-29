@@ -82,9 +82,10 @@ export const experience = [
     dates: "May 2026 – August 2026",
     location: "Northbrook, Illinois",
     bullets: [
-      "Automated regression testing for auto insurance user onboarding workflows using Playwright & JavaScript.",
-      "Improved automation reliability by writing reusable end-to-end tests & resolving flaky pipeline failures.",
-      "Accelerated continuous testing by integrating GitHub Actions & Jenkins into CI/CD workflows.",
+      "Built automated Playwright/JavaScript regression tests for insurance quoting workflows across 40+ states.",
+      "Developed 12 functional tests validating state-dependent business logic, catching data-accuracy issues pre-release.",
+      "Diagnosed and resolved recurring Jenkins CI pipeline failures across 10 groups, improving test reliability.",
+      "Contributed 11 pull requests to a shared end-to-end test automation framework, improving test coverage.",
     ],
   },
   {

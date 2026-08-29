@@ -94,10 +94,11 @@ export const experience = [
     dates: "May 2025 – August 2025",
     location: "Round Rock, Texas",
     bullets: [
-      "Built an AI testcase recommendation platform with LLMs, embeddings, & semantic similarity for regression analysis.",
-      "Reduced testcase selection time significantly by mapping 5,000+ test cases in qTest to 1,200+ Jira defects.",
-      "Delivered an interactive engineering dashboard using React & Flask to visualize AI-powered regression recommendations.",
-      "Improved recommendation quality by 10% via embedding optimization, reaching 96% accuracy.",
+      "Built an AI platform recommending regression tests for reported software defects, using semantic similarity search.",
+      "Built a REST pipeline pulling 5,000+ test cases & 1,400+ Jira defects, cutting retrieval time ~83% via multithreading.",
+      "Developed a full-stack app (React & Flask+FastAPI) delivering AI test recommendations to iDRAC quality engineers, saving ~15 minutes per defect across 1,400+ Jira defects.",
+      "Achieved 89% test case recommendation accuracy and reduced manual test case selection time to seconds.",
+      "Presented results to engineering leadership, securing buy-in to expand the solution across Dell Quality Eng teams.",
     ],
   },
   {

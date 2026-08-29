@@ -7,7 +7,6 @@ export const site = {
   tagline: "Building intelligent systems for the real world.",
   location: "Grambling, Louisiana",
   email: "coml.asantehenry@gmail.com",
-  phone: "214.685.8733",
   links: {
     github: "https://github.com/henryagyare",
     linkedin: "https://www.linkedin.com/in/henry-asante",

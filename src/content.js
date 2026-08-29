@@ -102,14 +102,15 @@ export const experience = [
     ],
   },
   {
-    company: "AmaliTech NSP Training",
-    role: "Software Developer Trainee",
-    dates: "May 2024 – August 2024",
-    location: "Remote",
+    company: "TL James Engineering Lab — Grambling State University",
+    role: "Software Lead",
+    dates: "September 2024 – May 2025",
+    location: "Grambling, Louisiana",
     bullets: [
-      "Delivered a scalable learning platform using Spring Boot REST APIs serving 15,000+ educational Q&A pairs.",
-      "Reduced backend latency by ~40% through SQL optimization, Redis caching, & multithreading.",
-      "Improved software reliability by implementing JUnit & Mockito tests with 95%+ code coverage.",
+      "Built an Arduino-based sensor payload capturing atmospheric temperature & pressure at ~100,000 ft high.",
+      "Optimized C firmware for I²C/SPI peripherals, reducing sampling latency by 20% and ensuring reliability.",
+      "Resolved 30+ software/hardware issues by debugging with logic analyzers and protocol analyzers for SPI/I²C.",
+      "Led a 5-member team through the design lifecycle: schematics, PCB assembly, calibration, and field deployment.",
     ],
   },
   {
@@ -118,22 +119,22 @@ export const experience = [
     dates: "August 2023 – November 2023",
     location: "Kumasi, Ghana",
     bullets: [
-      "Developed a cross-platform engineering simulation platform using Vue.js, Python, TypeScript, & Electron.",
-      "Enabled engineering simulations via RESTful backend services connecting user interfaces with computation pipelines.",
-      "Enhanced engineering support by integrating a RAG-powered assistant for circuit troubleshooting & design guidance.",
+      "Built a circuit design and simulation app used by 1,500+ engineering students, enabling visual schematic creation.",
+      "Modeled 25+ circuit components (transistors, logic gates, passives) as an object-oriented TypeScript framework.",
+      "Developed a WebGL-based schematic canvas (PixiJS) with real-time wire and node detection for live circuit design.",
+      "Built REST APIs connecting the backend to PySpice/ngspice, enabling accurate SPICE-based circuit simulation.",
     ],
   },
-  // Kept from original portfolio (not on 1-page resume but relevant)
+  // Kept from original portfolio (not on the latest 1-page resume but relevant)
   {
-    company: "TL James Engineering Lab — Grambling State University",
-    role: "Research / Lab Assistant",
-    dates: "September 2024 – May 2025",
-    location: "Grambling, Louisiana",
+    company: "AmaliTech NSP Training",
+    role: "Software Developer Trainee",
+    dates: "May 2024 – August 2024",
+    location: "Remote",
     bullets: [
-      "Built an Arduino-based sensor payload capturing temperatures & pressures at >100,000 ft with 95% accuracy.",
-      "Optimized low-level C firmware for I²C/SPI peripherals, reducing sampling latency by 20%.",
-      "Resolved 30+ software/hardware issues using Python, logic analyzers, and protocol debuggers.",
-      "Collaborated in a 10-member team across schematic design, PCB layout, calibration, and deployment.",
+      "Delivered a scalable learning platform using Spring Boot REST APIs serving 15,000+ educational Q&A pairs.",
+      "Reduced backend latency by ~40% through SQL optimization, Redis caching, & multithreading.",
+      "Improved software reliability by implementing JUnit & Mockito tests with 95%+ code coverage.",
     ],
   },
   {

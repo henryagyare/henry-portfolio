@@ -163,10 +163,10 @@ export const projects = [
     stack: ["React", "Flutter", "FastAPI", "PostgreSQL", "JWT"],
     badge: "Full-Stack",
     bullets: [
-      "Built a full-stack web & mobile jobs platform using React, Flutter, and containerized FastAPI services with PostgreSQL.",
-      "Designed core backend workflows for resume ingestion, personalized recommendations, & apps tracking with JWT auth.",
-      "Implemented a multi-source discovery pipeline aggregating listings from 4 ATS platforms with resume-aware ranking.",
-      "Engineered a multi-service architecture using API-first practices, schema migrations, and 1,500+ automated tests.",
+      "Built a full-stack job platform (React, Flutter, FastAPI, PostgreSQL) serving 22 users with cross-ATS job aggregation.",
+      "Engineered a pipeline that surfaces job listings from 4 ATS platforms, aggregating opportunities in near real-time.",
+      "Implemented rules-based ranking, location-aware filtering & Telegram alerts, reducing time-to-apply for users.",
+      "Backed the platform with 1,800+ unit, integration, and e2e tests across pytest, Flutter, Vitest, and Playwright.",
     ],
   },
   {
@@ -177,9 +177,9 @@ export const projects = [
     href: "https://github.com/henryagyare/orbit-sh",
     badge: "Systems",
     bullets: [
-      "Built a Unix shell in C supporting command parsing, foreground/background execution, & built-in commands.",
-      "Implemented pipeline support (|) using pipe() and dup2() for inter-process communication between child processes.",
-      "Prevented zombie processes using sigaction (SIGCHLD) w/non-blocking waitpid(), ensuring child process reaping.",
+      "Built a Unix shell in C supporting command parsing, foreground/background execution, & built-ins (cd, exit).",
+      "Implemented two-stage pipelines (cmd1 | cmd2) using pipe() and dup2() for inter-process I/O redirection.",
+      "Prevented zombie processes via a SIGCHLD handler with non-blocking waitpid(), ensuring child process reaping.",
     ],
   },
   {

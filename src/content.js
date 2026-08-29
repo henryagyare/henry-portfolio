@@ -183,6 +183,20 @@ export const projects = [
     ],
   },
   {
+    title: "BrillaAI: STEM Questions Synthesis Platform",
+    blurb:
+      "AI system generating 15,600+ STEM practice questions by fine-tuning LLaMA-3 8B, with ETL pipelines to clean, structure, & validate the dataset.",
+    stack: ["LLaMA-3 8B", "PyTorch", "ETL", "Python"],
+    href: "https://github.com/henryagyare/BrillaAi-Questions-Synthesis",
+    badge: "AI / Full-Stack",
+    bullets: [
+      "Developed an AI system that generated 15,600+ STEM practice questions by fine-tuning a LLaMA-3 8B model.",
+      "Used gradient checkpointing and 8-bit optimizers to improve training efficiency on a single Tesla T4 GPU.",
+      "Built ETL pipelines to clean, structure, & validate 15,600+ records, enabling reproducible quality evaluation.",
+    ],
+  },
+  // ── Additional portfolio items ─────────────────────────────────────────────
+  {
     title: "Goal Misgeneralization in a Model-Based Agent",
     blurb:
       "Engineered a physics-based simulation pipeline in a 4D continuous state space to evaluate autonomous agent robustness. Integrated a neural dynamics model with a CEM planner for 200-step trajectory rollout and receding-horizon MPC.",
@@ -196,7 +210,6 @@ export const projects = [
       "Analyzed simulation telemetry, showing low next-state MSE (~10⁻³) despite failure from proxy reward misalignment.",
     ],
   },
-  // ── Additional portfolio items ─────────────────────────────────────────────
   {
     title: "Spinal Lower Back Pain Classifier",
     blurb:
@@ -208,19 +221,6 @@ export const projects = [
       "Deployed a full-stack Streamlit app with LLM-powered diagnostic analysis using Groq's Llama 3.3 API.",
       "Built and iteratively improved a CNN-based MRI classifier using MobileNet-V2, achieving ~72% training accuracy.",
       "Visualized accuracy & loss curves to diagnose overfitting & guide future model enhancements via fine-tuning.",
-    ],
-  },
-  {
-    title: "BrillaAI – STEM Question Synthesis",
-    blurb:
-      "Fine-tuned LLaMA-3 8B with LoRA to generate 15,600+ STEM QA pairs using Unsloth & 4-bit quantization.",
-    stack: ["LLaMA", "LoRA", "Unsloth", "SQL", "Python"],
-    href: "https://github.com/henryagyare/BrillaAi-Questions-Synthesis",
-    badge: "AI / Full-Stack",
-    bullets: [
-      "Fine-tuned LLaMA-3 8B with LoRA adapters to generate diverse STEM Q&A pairs using 4-bit quantization.",
-      "Curated and cleaned a dataset of 15,600+ question-answer pairs via automated SQL pipelines.",
-      "Leveraged Unsloth for efficient fine-tuning, reducing VRAM usage and training time significantly.",
     ],
   },
   {

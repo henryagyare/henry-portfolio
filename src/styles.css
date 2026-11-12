@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --bg-color: 250 250 250;      /* zinc-50 */
   --text-color: 24 24 27;       /* zinc-900 */
   --accent-blue: 59 130 246;    /* blue-500 */

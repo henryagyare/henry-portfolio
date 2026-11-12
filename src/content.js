@@ -18,6 +18,10 @@ export const site = {
 // ————————————————————————
 // Education
 // ————————————————————————
+export const community = {
+  organization: "Develop for Good",
+};
+
 export const education = {
   institution: "Grambling State University (GSU)",
   location: "Grambling, Louisiana",
@@ -25,12 +29,6 @@ export const education = {
   gpa: "4.0 / 4.0",
   graduation: "May 2028",
   honors: ["President's List (4×)", "GSU Honors College", "Academic Achievement Award"],
-  leadership: {
-    organization: "GSU Circuit Design & Computer Architecture Club",
-    role: "Founder & President",
-    dates: "January 2025 – Present",
-    description: "Lead weekly workshops for 20+ students on pipelining, branch prediction, and memory hierarchy.",
-  },
   coursework: [
     "Deep Learning",
     "Operating Systems",

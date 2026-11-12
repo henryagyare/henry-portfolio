@@ -4,6 +4,7 @@ import Hero from "../components/Hero.jsx";
 import About from "../components/About.jsx";
 import ExperienceItem from "../components/ExperienceItem.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
+import ProjectSpotlight from "../components/ProjectSpotlight.jsx";
 import SkillsGrid from "../components/SkillsGrid.jsx";
 import Contact from "../components/Contact.jsx";
 import EmailModal from "../components/EmailModal.jsx";
@@ -12,27 +13,26 @@ import { FiGithub } from "../utils/icons.jsx";
 
 export default function HomePage() {
   const [emailOpen, setEmailOpen] = useState(false);
+  const featuredProject = projects.find((project) => project.title === "IntelliJobs");
+  const otherProjects = projects.filter((project) => project !== featuredProject);
 
   return (
     <>
-      <Hero onEmailClick={() => setEmailOpen(true)} />
+      <Hero />
 
-      <Section id="about" eyebrow="Story" title="About Me">
-        <About />
-      </Section>
-
-      <Section id="experience" eyebrow="Experience" title="Where I've Worked">
-        <div className="max-w-4xl mx-auto">
-          {experience.map((exp, idx) => (
-            <ExperienceItem key={idx} exp={exp} isLast={idx === experience.length - 1} />
-          ))}
-        </div>
-      </Section>
+      <section aria-label="Internship highlights">
+        <Container>
+          <div className="grid gap-3 border-y border-zinc-300 py-4 text-sm sm:grid-cols-2 dark:border-zinc-800">
+            <p><strong>Allstate · 2026</strong><br />Automated end-to-end tests for insurance quoting.</p>
+            <p><strong>Dell Technologies · 2025</strong><br />Built a tool that recommends regression tests for software defects.</p>
+          </div>
+        </Container>
+      </section>
 
       <Section id="projects" eyebrow="Work" title="My Projects">
-        <div className="absolute -right-32 top-24 w-[500px] h-[500px] bg-violet-500/5 dark:bg-violet-500/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+        {featuredProject && <ProjectSpotlight project={featuredProject} />}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, idx) => (
+          {otherProjects.map((p, idx) => (
             <ProjectCard key={p.title} p={p} index={idx} />
           ))}
         </div>
@@ -47,6 +47,18 @@ export default function HomePage() {
             View All Projects on GitHub
           </a>
         </div>
+      </Section>
+
+      <Section id="experience" eyebrow="Experience" title="Where I've Worked">
+        <div className="max-w-4xl mx-auto">
+          {experience.map((exp, idx) => (
+            <ExperienceItem key={idx} exp={exp} isLast={idx === experience.length - 1} />
+          ))}
+        </div>
+      </Section>
+
+      <Section id="about" eyebrow="Story" title="About Me">
+        <About />
       </Section>
 
       <Section id="skills" eyebrow="Toolbox" title="Technical Skills">

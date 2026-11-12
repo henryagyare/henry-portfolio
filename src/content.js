@@ -21,7 +21,7 @@ export const site = {
 export const education = {
   institution: "Grambling State University (GSU)",
   location: "Grambling, Louisiana",
-  degree: "BSc. Computer Science",
+  degree: "B.S. in Computer Science",
   gpa: "4.0 / 4.0",
   graduation: "May 2028",
   coursework: [
@@ -37,9 +37,9 @@ export const education = {
 // About Section
 // ————————————————————————
 export const about = {
-  heading: "I'm a CS student at GSU focused on building software that bridges AI, systems, and real-world impact.",
+  heading: "I'm a computer science student at Grambling State University focused on software engineering, applied AI, and systems programming.",
   body:
-    "I like taking ambiguous problems and turning them into clean, scalable solutions. I've shipped AI-driven tooling at Dell, built full-stack apps, engineered hardware sensor payloads, and developed automation pipelines. I care deeply about performance, reliability, and user experience.",
+    "At Dell Technologies, I built a tool that recommends regression tests for software defects. At Allstate, I automated end-to-end tests for insurance quoting workflows. I also led a five-person team at Grambling State to build and field a high-altitude balloon sensor payload.",
   highlights: [
     "4.0 GPA · Computer Science @ Grambling State University",
     "2× SWE Intern (Dell Technologies, Allstate Insurance)",
@@ -56,8 +56,8 @@ export const about = {
 export const skills = {
   // Resume: "Languages"
   languages: [
-    "Java", "JavaScript", "Python", "C/C++",
-    "React", "Node", "Flask", "HTML", "SQL", "REST APIs",
+    "Java", "JavaScript", "TypeScript", "Python", "C/C++",
+    "React", "Node.js", "Flask", "FastAPI", "HTML", "SQL", "REST APIs",
   ],
   // Resume: "AI & Dev Tools"
   aiTools: [
@@ -67,7 +67,7 @@ export const skills = {
   // Resume: "Infra & Dev Tools" + "AI/ML & Data"
   tools: [
     "MongoDB", "Docker", "Kubernetes", "AWS", "Git", "CI/CD", "Jenkins",
-    "GitHub Actions", "Linux", "Spark", "TensorFlow", "PyTorch",
+    "GitHub Actions", "Linux", "Playwright", "PostgreSQL", "Spark", "TensorFlow", "PyTorch",
     "Scikit-learn", "RAG", "Pandas",
   ],
 };

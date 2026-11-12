@@ -1,4 +1,5 @@
 import React from "react";
+import JobRankingDemo from "./JobRankingDemo.jsx";
 
 export default function ProjectSpotlight({ project }) {
   return (
@@ -11,11 +12,7 @@ export default function ProjectSpotlight({ project }) {
         </p>
         <p className="mt-4 text-sm text-zinc-700 dark:text-zinc-300">{project.stack.join(" · ")}</p>
       </div>
-      <ol className="space-y-2 self-center text-sm font-medium">
-        <li className="rounded-md bg-white/80 px-4 py-3 dark:bg-zinc-900">Collect listings from four hiring platforms</li>
-        <li className="rounded-md bg-white/80 px-4 py-3 dark:bg-zinc-900">Rank listings by fit and location</li>
-        <li className="rounded-md bg-white/80 px-4 py-3 dark:bg-zinc-900">Show ranked results and send alerts</li>
-      </ol>
+      <JobRankingDemo />
     </article>
   );
 }

@@ -204,6 +204,14 @@ export const projects = [
   },
   // ── Additional portfolio items ─────────────────────────────────────────────
   {
+    title: "LinkedIn-to-ATS Application Agent",
+    blurb:
+      "Open-source tool that discovers job listings and helps submit applications across four applicant tracking systems. It supports review before submission and pauses when required information is missing.",
+    stack: ["AI Agents", "Workflow Automation"],
+    href: "https://github.com/henryagyare/linkedin-claude-connector",
+    badge: "AI / Automation",
+  },
+  {
     title: "Goal Misgeneralization in a Model-Based Agent",
     blurb:
       "Engineered a physics-based simulation pipeline in a 4D continuous state space to evaluate autonomous agent robustness. Integrated a neural dynamics model with a CEM planner for 200-step trajectory rollout and receding-horizon MPC.",

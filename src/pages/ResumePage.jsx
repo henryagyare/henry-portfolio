@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "../components/Layout.jsx";
 import EmailModal from "../components/EmailModal.jsx";
-import { site, education, experience, projects, skills } from "../content.js";
+import { site, education, experience, projects, skills, community } from "../content.js";
 import { getIcon, FiGithub, FiLinkedin, FiMail, FiExternalLink } from "../utils/icons.jsx";
 
 // ─── Small helpers ─────────────────────────────────────────────────────────
@@ -227,17 +227,10 @@ export default function ResumePage() {
                 </div>
               </div>
 
-              {/* ── Skills ─────────────────────────────────────────────────── */}
               <div className="mb-10">
-                <SectionHeader title="Leadership" />
+                <SectionHeader title="Community" />
                 <p className="font-display font-bold text-base text-zinc-900 dark:text-white">
-                  {education.leadership.organization}
-                </p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                  {education.leadership.role} · {education.leadership.dates}
-                </p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                  {education.leadership.description}
+                  {community.organization}
                 </p>
               </div>
 

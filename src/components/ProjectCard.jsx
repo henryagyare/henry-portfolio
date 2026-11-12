@@ -62,6 +62,21 @@ export default function ProjectCard({ p, index }) {
           ))}
         </div>
 
+        {p.example && (
+          <figure className="mb-5">
+            <pre className="whitespace-pre-wrap break-words rounded-md bg-zinc-900 p-3 text-sm text-zinc-100">
+              <code>{p.example.command}</code>
+            </pre>
+            <figcaption className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+              {p.example.explanation}
+            </figcaption>
+            <details className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+              <summary className="cursor-pointer font-semibold">How background commands work</summary>
+              <p className="mt-2">{p.example.note}</p>
+            </details>
+          </figure>
+        )}
+
         {p.href && (
           <a
             href={p.href}

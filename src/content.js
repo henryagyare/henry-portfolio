@@ -37,9 +37,9 @@ export const education = {
 // About Section
 // ————————————————————————
 export const about = {
-  heading: "I'm a computer science student at Grambling State University focused on software engineering, applied AI, and systems programming.",
+  heading: "I'm a CS student at GSU focused on building software that bridges AI, systems, and real-world impact.",
   body:
-    "At Dell Technologies, I built a tool that recommends regression tests for software defects. At Allstate, I automated end-to-end tests for insurance quoting workflows. I also led a five-person team at Grambling State to build and field a high-altitude balloon sensor payload.",
+    "I like taking ambiguous problems and turning them into clean, scalable solutions. I've shipped AI-driven tooling at Dell, built full-stack apps, engineered hardware sensor payloads, and developed automation pipelines. I care deeply about performance, reliability, and user experience.",
   highlights: [
     "4.0 GPA · Computer Science @ Grambling State University",
     "2× SWE Intern (Dell Technologies, Allstate Insurance)",

@@ -7,15 +7,9 @@ export default function Nav() {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
-  // Initialize theme from localStorage or system prefers-color-scheme
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme");
-      if (stored) return stored;
-      return document.documentElement.classList.contains("dark") ? "dark" : "light";
-    }
-    return "dark";
-  });
+  const [theme, setTheme] = useState(() =>
+    typeof window !== "undefined" && localStorage.getItem("theme") === "dark" ? "dark" : "light",
+  );
 
   useEffect(() => {
     if (theme === "dark") {

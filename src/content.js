@@ -94,7 +94,7 @@ export const experience = [
     dates: "May 2025 – August 2025",
     location: "Round Rock, Texas",
     bullets: [
-      "Built a tool that uses semantic similarity search to recommend regression tests for reported software defects.",
+      "Built a tool that uses semantic similarity search to recommend regression tests for reported software defects, achieving 89% recommendation accuracy.",
       "Built a REST pipeline pulling 5,000+ test cases & 1,400+ Jira defects, cutting retrieval time ~83% via multithreading.",
       "Developed a full-stack app (React & Flask+FastAPI) delivering AI test recommendations to iDRAC quality engineers, saving ~15 minutes per defect across 1,400+ Jira defects.",
       "Presented results to engineering leadership, securing buy-in to expand the solution across Dell Quality Eng teams.",

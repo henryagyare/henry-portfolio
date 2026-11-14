@@ -1,5 +1,5 @@
 import React from "react";
-import JobRankingDemo from "./JobRankingDemo.jsx";
+import IntelliJobsMockupDemo from "./IntelliJobsMockupDemo.jsx";
 
 export default function ProjectSpotlight({ project }) {
   return (
@@ -12,7 +12,7 @@ export default function ProjectSpotlight({ project }) {
         </p>
         <p className="mt-4 text-sm text-zinc-700 dark:text-zinc-300">{project.stack.join(" · ")}</p>
       </div>
-      <JobRankingDemo />
+      <IntelliJobsMockupDemo />
     </article>
   );
 }

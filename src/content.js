@@ -174,6 +174,11 @@ export const projects = [
       "Unix shell in C with built-in commands, foreground and background execution, and pipelines that pass output between processes.",
     stack: ["C", "Unix", "Linux Systems Programming"],
     href: "https://github.com/henryagyare/orbit-sh",
+    example: {
+      command: "henrysh> ls | wc -l",
+      explanation: "The shell connects the output of ls to the input of wc with a pipe. Each command runs in its own child process.",
+      note: "Foreground commands make the shell wait before showing another prompt. For a background command such as sleep 5 &, the prompt returns immediately and the shell collects the exit status when the child finishes.",
+    },
     badge: "Systems",
     bullets: [
       "Built a Unix shell in C supporting command parsing, foreground/background execution, & built-ins (cd, exit).",

@@ -18,12 +18,17 @@ export const site = {
 // ————————————————————————
 // Education
 // ————————————————————————
+export const community = {
+  organization: "Develop for Good",
+};
+
 export const education = {
   institution: "Grambling State University (GSU)",
   location: "Grambling, Louisiana",
   degree: "B.S. in Computer Science",
   gpa: "4.0 / 4.0",
   graduation: "May 2028",
+  honors: ["President's List (4×)", "GSU Honors College", "Academic Achievement Award"],
   coursework: [
     "Deep Learning",
     "Operating Systems",
@@ -200,6 +205,14 @@ export const projects = [
     ],
   },
   // ── Additional portfolio items ─────────────────────────────────────────────
+  {
+    title: "LinkedIn-to-ATS Application Agent",
+    blurb:
+      "Open-source tool that discovers job listings and helps submit applications across four applicant tracking systems. It supports review before submission and pauses when required information is missing.",
+    stack: ["AI Agents", "Workflow Automation"],
+    href: "https://github.com/henryagyare/linkedin-claude-connector",
+    badge: "AI / Automation",
+  },
   {
     title: "Goal Misgeneralization in a Model-Based Agent",
     blurb:

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "../components/Layout.jsx";
 import EmailModal from "../components/EmailModal.jsx";
-import { site, education, experience, projects, skills } from "../content.js";
+import { site, education, experience, projects, skills, community } from "../content.js";
 import { getIcon, FiGithub, FiLinkedin, FiMail, FiExternalLink } from "../utils/icons.jsx";
 
 // ─── Small helpers ─────────────────────────────────────────────────────────
@@ -213,6 +213,9 @@ export default function ResumePage() {
                     <p className="text-zinc-550 dark:text-zinc-500 text-xs mt-1 transition-colors duration-300">
                       Relevant Coursework: {education.coursework.join(", ")}
                     </p>
+                    <p className="text-zinc-550 dark:text-zinc-500 text-xs mt-1 transition-colors duration-300">
+                      Honors · {education.honors.join(", ")}
+                    </p>
                   </div>
                   <div className="text-right flex-shrink-0">
                     <p className="text-xs font-semibold uppercase tracking-wide text-zinc-600 dark:text-zinc-500 transition-colors duration-300">{education.location}</p>
@@ -224,7 +227,13 @@ export default function ResumePage() {
                 </div>
               </div>
 
-              {/* ── Skills ─────────────────────────────────────────────────── */}
+              <div className="mb-10">
+                <SectionHeader title="Community" />
+                <p className="font-display font-bold text-base text-zinc-900 dark:text-white">
+                  {community.organization}
+                </p>
+              </div>
+
               <div className="mb-10">
                 <SectionHeader title="Technical Skills" />
                 <div className="space-y-3">

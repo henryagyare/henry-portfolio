@@ -21,7 +21,7 @@ export const site = {
 export const education = {
   institution: "Grambling State University (GSU)",
   location: "Grambling, Louisiana",
-  degree: "BSc. Computer Science",
+  degree: "B.S. in Computer Science",
   gpa: "4.0 / 4.0",
   graduation: "May 2028",
   coursework: [
@@ -56,8 +56,8 @@ export const about = {
 export const skills = {
   // Resume: "Languages"
   languages: [
-    "Java", "JavaScript", "Python", "C/C++",
-    "React", "Node", "Flask", "HTML", "SQL", "REST APIs",
+    "Java", "JavaScript", "TypeScript", "Python", "C/C++",
+    "React", "Node.js", "Flask", "FastAPI", "HTML", "SQL", "REST APIs",
   ],
   // Resume: "AI & Dev Tools"
   aiTools: [
@@ -67,7 +67,7 @@ export const skills = {
   // Resume: "Infra & Dev Tools" + "AI/ML & Data"
   tools: [
     "MongoDB", "Docker", "Kubernetes", "AWS", "Git", "CI/CD", "Jenkins",
-    "GitHub Actions", "Linux", "Spark", "TensorFlow", "PyTorch",
+    "GitHub Actions", "Linux", "Playwright", "PostgreSQL", "Spark", "TensorFlow", "PyTorch",
     "Scikit-learn", "RAG", "Pandas",
   ],
 };

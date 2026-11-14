@@ -82,7 +82,7 @@ export const experience = [
     dates: "May 2026 – August 2026",
     location: "Northbrook, Illinois",
     bullets: [
-      "Built automated Playwright/JavaScript regression tests for insurance quoting workflows across 40+ states.",
+      "Automated end-to-end regression tests in Playwright and JavaScript for insurance quoting workflows across 40+ states.",
       "Developed 12 functional tests validating state-dependent business logic, catching data-accuracy issues pre-release.",
       "Diagnosed and resolved recurring Jenkins CI pipeline failures across 10 groups, improving test reliability.",
       "Contributed 11 pull requests to a shared end-to-end test automation framework, improving test coverage.",
@@ -94,10 +94,9 @@ export const experience = [
     dates: "May 2025 – August 2025",
     location: "Round Rock, Texas",
     bullets: [
-      "Built an AI platform recommending regression tests for reported software defects, using semantic similarity search.",
+      "Built a tool that uses semantic similarity search to recommend regression tests for reported software defects, achieving 89% recommendation accuracy.",
       "Built a REST pipeline pulling 5,000+ test cases & 1,400+ Jira defects, cutting retrieval time ~83% via multithreading.",
       "Developed a full-stack app (React & Flask+FastAPI) delivering AI test recommendations to iDRAC quality engineers, saving ~15 minutes per defect across 1,400+ Jira defects.",
-      "Achieved 89% test case recommendation accuracy and reduced manual test case selection time to seconds.",
       "Presented results to engineering leadership, securing buy-in to expand the solution across Dell Quality Eng teams.",
     ],
   },
@@ -107,7 +106,7 @@ export const experience = [
     dates: "September 2024 – May 2025",
     location: "Grambling, Louisiana",
     bullets: [
-      "Built an Arduino-based sensor payload capturing atmospheric temperature & pressure at ~100,000 ft high.",
+      "Built an Arduino-based sensor payload to measure atmospheric temperature and pressure at about 100,000 feet.",
       "Optimized C firmware for I²C/SPI peripherals, reducing sampling latency by 20% and ensuring reliability.",
       "Resolved 30+ software/hardware issues by debugging with logic analyzers and protocol analyzers for SPI/I²C.",
       "Led a 5-member team through the design lifecycle: schematics, PCB assembly, calibration, and field deployment.",
@@ -159,7 +158,7 @@ export const projects = [
   {
     title: "IntelliJobs",
     blurb:
-      "Full-stack web & mobile jobs platform with a multi-source discovery pipeline aggregating listings from 4 ATS platforms with resume-aware, personalized ranking.",
+      "Web and mobile job search platform that aggregates listings from four applicant tracking systems and ranks them using résumé information.",
     stack: ["React", "Flutter", "FastAPI", "PostgreSQL", "JWT"],
     badge: "Full-Stack",
     bullets: [
@@ -172,7 +171,7 @@ export const projects = [
   {
     title: "Orbit-sh: A Modular Unix Shell with Systems Integration",
     blurb:
-      "Unix shell in C supporting command parsing, foreground/background execution, and built-in commands. Implements pipeline support using pipe() and dup2() for inter-process communication.",
+      "Unix shell in C with built-in commands, foreground and background execution, and pipelines that pass output between processes.",
     stack: ["C", "Unix", "Linux Systems Programming"],
     href: "https://github.com/henryagyare/orbit-sh",
     badge: "Systems",

@@ -174,6 +174,20 @@ export const projects = [
     ],
   },
   {
+    title: "Zyvara",
+    blurb:
+      "A \"Strava for protecting the environment\": people take on local cleanup challenges, submit photo evidence, and earn points for verified contributions. Built at CodeRED Orion and now live at zyvara.us.",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Firebase", "Gemini"],
+    href: "https://zyvara.us",
+    badge: "Full-Stack",
+    bullets: [
+      "Led a hackathon team and built most of a full-stack app in Next.js, TypeScript and PostgreSQL, from challenge discovery to evidence submission and a points ledger.",
+      "Designed a private photo pipeline: uploads are re-encoded server-side, metadata is stripped, and images are served only after ownership or publication checks.",
+      "Integrated Gemini to assess submitted evidence, with challenge-creator review that can approve or reverse awards and safeguards against duplicate points.",
+      "Wrote integrity and end-to-end tests (Playwright) covering transactions, uploads, retries, moderation and ledger reconciliation.",
+    ],
+  },
+  {
     title: "Orbit-sh: A Modular Unix Shell with Systems Integration",
     blurb:
       "Unix shell in C with built-in commands, foreground and background execution, and pipelines that pass output between processes.",

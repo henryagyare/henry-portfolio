@@ -1,35 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiGithub, FiLinkedin, FiSun, FiMoon } from "../utils/icons.jsx";
 import { site } from "../content.js";
+import { useTheme, toggleTheme } from "../utils/theme.js";
 
 export default function Nav() {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
-  const [theme, setTheme] = useState(() =>
-    typeof window !== "undefined" && localStorage.getItem("theme") === "dark" ? "dark" : "light",
-  );
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
+  const theme = useTheme();
 
   // Helper: if on home page, use hash links; if on other pages, go home first
   const homeLink = (hash) => (isHome ? hash : `/${hash}`);
 
   return (
-    <nav className="sticky top-4 z-50 mx-auto max-w-4xl px-4">
+    <nav className="relative z-30 mx-auto max-w-4xl px-4">
       <div className="flex items-center justify-between rounded-full border border-zinc-200 bg-white/80 dark:border-zinc-800/60 dark:bg-zinc-950/70 px-6 py-3 backdrop-blur-md transition-all duration-300 shadow-sm dark:shadow-none">
         <Link
           to="/"
@@ -38,9 +23,9 @@ export default function Nav() {
           {site.name}
         </Link>
         <div className="hidden sm:flex items-center gap-6 text-xs font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400">
-          <a className="hover:text-zinc-900 dark:hover:text-white transition-colors" href={homeLink("#about")}>About</a>
-          <a className="hover:text-zinc-900 dark:hover:text-white transition-colors" href={homeLink("#experience")}>Experience</a>
           <a className="hover:text-zinc-900 dark:hover:text-white transition-colors" href={homeLink("#projects")}>Projects</a>
+          <a className="hover:text-zinc-900 dark:hover:text-white transition-colors" href={homeLink("#experience")}>Experience</a>
+          <a className="hover:text-zinc-900 dark:hover:text-white transition-colors" href={homeLink("#about")}>About</a>
           <a className="hover:text-zinc-900 dark:hover:text-white transition-colors" href={homeLink("#skills")}>Skills</a>
           <Link className="hover:text-zinc-900 dark:hover:text-white transition-colors" to="/resume">Resume</Link>
         </div>

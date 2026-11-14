@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav.jsx";
+import SideNav from "./components/SideNav.jsx";
 import Footer from "./components/Footer.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import ResumePage from "./pages/ResumePage.jsx";
@@ -15,6 +16,7 @@ export default function App() {
         <div className="pt-6">
           <Nav />
         </div>
+        <SideNav />
 
         <Routes>
           <Route path="/" element={<HomePage />} />
